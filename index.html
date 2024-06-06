@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ankit */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(#535535, #1117);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .div{
+            height: 400px;
+            width: 250px;
+            background-color: rgba(255, 255, 255, 0.268);
+            border-radius: 10px;
+            padding: 1%;
+            position: relative;
+        }
+        .div button{
+            width: 44%;
+            padding: 4% 0%;
+            float: right;
+            cursor: pointer;
+            border: none;
+            background-color: rgb(0, 0, 81);
+            color: white;
+            border-radius: 0.5rem;
+        }
+        #btn1{
+            float: left;
+            background-color: rgb(179, 116, 1);
+        }
+        .div p{
+            font-weight: bold;
+            color: white;
+        }
+        .img{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-image: url("./myimg.jpg");
+            height: 60%;
+            width: 100%;
+            background-size: 100% 160%;
+            background-position: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div style=" height: 10%;">
+        <button id="btn1">click me</button>
+        <button id="btn2">click me</button>
+    </div>
+
+        <p id="show"></p>
+
+        <div class="img"></div>
+    </div>
+
+    <script>
+        var colorcode = "0123456789abcdef"
+
+
+        var btn1 = document.getElementById("btn1")
+        var btn2 = document.getElementById("btn2")
+        var show = document.getElementById("show")
+        var rgb1, rgb2;
+        const colorcoldevalue = () => {
+            var colorcode = "0123456789abcdef"
+            let color = "#"
+            for (let i = 0; i < 6; i++) {
+                color = color + (colorcode[Math.floor(Math.random() * 16)])
+            }
+            return color;
+        }
+        const handlebtnclick = () => {
+            rgb1 = colorcoldevalue();
+            console.log(rgb1)
+            document.body.style.backgroundImage = `linear-gradient(${rgb1} , green)`;
+            show.innerText = `upar wale color ka code :  ${rgb1} \n niche wala color ka code : ${rgb2}`
+            btn1.innerText = `${rgb1}`
+            btn2.innerText = `${rgb2}`
+        }
+        const handlebtnclick2 = () => {
+            rgb2 = colorcoldevalue();
+            document.body.style.backgroundImage = `linear-gradient( red  , ${rgb2})`;
+            show.innerText = `upar wale color ka code :  ${rgb1} \n niche wala color ka code : ${rgb2}`
+            btn1.innerText = `${rgb1}`
+            btn2.innerText = `${rgb2}`
+        }
+
+        console.rgb1;
+        btn1.addEventListener("click", handlebtnclick)
+        btn2.addEventListener("click", handlebtnclick2)
+
+
+
+
+    </script>
+</body>
+
+</html>
